@@ -1,4 +1,4 @@
 # AngularAssignment_PallaviZoting
 Angular Training Assignment
 
-refer AssignmentAngular.svg for Assignment Documentation
+Please refer "AssignmentAngular.svg" for Assignment Documentation
