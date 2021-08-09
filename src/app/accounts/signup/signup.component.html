@@ -1,0 +1,72 @@
+
+<form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+  <div class="container page">
+    <div class="col-md-6 offset-md-3 col-xs-12"> 
+      <div>
+        <h1 style="color: rgb(26, 150, 26);align-items: center;">SignUp:</h1>
+      </div>
+       <div>
+        <p>
+        <label>UserName:</label>
+        <input name="userNameText"
+        class="form-control"
+         type="text"
+         [(ngModel)]="userName"
+         #userNameText="ngModel"
+          required/>
+       </p>
+       <div  *ngIf="userNameText.invalid && (userNameText.dirty ||userNameText.touched)">
+         <div *ngIf="userNameText.errors?.required">
+           <output style="color: red;">Name is required</output>
+         </div>
+       </div>
+      </div>
+
+      <div>
+        <p>
+        <label>EmailId:</label>
+        <input name="emailIdText"
+        class="form-control"
+         type="text"
+         [(ngModel)]="emailId"
+         #emailIdText="ngModel"
+          required/>
+       </p>
+       <div  *ngIf="emailIdText.invalid && (emailIdText.dirty || emailIdText.touched)">
+         <div *ngIf="emailIdText.errors?.required">
+           <output style="color: red;">Email Id is required</output>
+         </div>
+       </div>
+      </div>
+
+      <div>
+        <p>
+         <label>Password:</label>
+         <input name="passwordText" 
+         #passwordText="ngModel"
+          type="password" [(ngModel)]="password" 
+          required minlength="5" maxlength="10"/>
+       </p>
+       <div *ngIf="passwordText.invalid && (passwordText.dirty || passwordText.touched)">
+         <div *ngIf="passwordText.errors?.required">
+           <output style="color: red;">Password is Required</output>
+         </div>
+         <div *ngIf="passwordText.errors?.minlength">
+           <output>Password muset be at least 5 charcters</output>
+         </div>
+         <div *ngIf="passwordText.errors?.maxlength">
+           <output>Password cannot be more than 10 charcters</output>
+         </div>
+       </div>
+       </div>
+       <p>
+         <td><input type="submit" [disabled]="!signupForm.valid"/></td>
+        <td> <button (click)="onReset()" >reset</button> </td>
+      </p>
+      <tr>
+        <td> <output> {{'SignUp Status :'+ errorMessage}}</output> </td>
+      </tr>
+       </div>
+      </div>
+
+</form>
