@@ -1,0 +1,2 @@
+# AngularAssignment_PallaviZoting
+Angular Training Assignment
